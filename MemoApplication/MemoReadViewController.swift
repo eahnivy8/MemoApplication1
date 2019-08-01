@@ -24,7 +24,7 @@ class MemoReadViewController: UIViewController {
         img.image = memoVO?.image
         
         let formatter = DateFormatter()
-        formatter.dateFormat = "dd일 HH:mm 작성"
+        formatter.dateFormat = "yyyy-MM-dd"
         let dateString = formatter.string(from: (memoVO?.regdate)!)
         self.navigationItem.title = dateString
     }
