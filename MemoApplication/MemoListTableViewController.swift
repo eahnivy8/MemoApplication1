@@ -9,9 +9,22 @@
 import UIKit
 
 class MemoListTableViewController: UITableViewController {
+    //오른쪽의 + 버튼을 눌렀을 때 호출될 메소드
+    @objc func add(_sender : Any){
+        //인터페이스빌더에서 디자인 한 후 뷰 컨트롤러 인스턴스 만들기
+        let memoFormViewController = self.storyboard?.instantiateViewController(withIdentifier: "MemoFormViewController") as! MemoFormViewController
+        //네비게이션을 이용해서 푸쉬
+        self.navigationController?.pushViewController(memoFormViewController, animated: true)
+        
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Memo List"
+        //네비게이션 바의 오른쪽에 + 버튼을 추가해서 메소드를 설정.
+        let barButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(self.add(_sender:)))
+        self.navigationItem.rightBarButtonItem = barButtonItem
+        
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
