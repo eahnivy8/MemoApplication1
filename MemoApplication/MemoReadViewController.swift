@@ -9,22 +9,25 @@
 import UIKit
 
 class MemoReadViewController: UIViewController {
-
+    @IBOutlet weak var subject: UILabel!
+    @IBOutlet weak var contents: UILabel!
+    @IBOutlet weak var img: UIImageView!
+    
+    
+    //상위 뷰 컨트롤러로부터 데이터를 넘겨받기 위한 변수
+    var memoVO : MemoValueObject?
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        subject.text = memoVO?.title
+        contents.text = memoVO?.content
+        img.image = memoVO?.image
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd일 HH:mm 작성"
+        let dateString = formatter.string(from: (memoVO?.regdate)!)
+        self.navigationItem.title = dateString
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
