@@ -15,10 +15,18 @@ class MemoFormViewController: UIViewController{
     @IBOutlet weak var contents: UITextView!
     @IBOutlet weak var preView: UIImageView!
     @IBAction func save(_ sender: Any) {
+        //대화상자 customizing을 위한 viewcontroller
+        let customAlertView = UIViewController()
+        customAlertView.view = UIImageView(image:UIImage(named: "warning-icon-60"))
+        //인스턴스? 내용1 ?? 내용2
+        //인스턴스가 nil이 아니면 내용1 nil이면 내용2
+        customAlertView.preferredContentSize = UIImage(named: "warning-icon-60")? .size ?? CGSize.zero
+        
         //입력한 내용이 없으면 return
         guard self.contents.text.isEmpty == false else{
             let alert = UIAlertController(title: "Contents Required", message: nil, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title:"OK", style: .cancel))
+            alert.setValue(customAlertView, forKey:"contentViewController")
             self.present(alert, animated: true)
             return
         }
@@ -36,7 +44,7 @@ class MemoFormViewController: UIViewController{
     }
     @IBAction func pick(_ sender: Any) {
         //카메라, 저장앨범, 사진 라이브러리 중의 하나를 선택하는 대화상자를 출력
-        let select = UIAlertController(title: "Choose Where to Import Image", message: nil, preferredStyle: .actionSheet)
+        let select = UIAlertController(title: "Choose Where to Import Images", message: nil, preferredStyle: .actionSheet)
         select.addAction(UIAlertAction(title:"Camera", style: .default, handler:{(alert) -> Void in
             self.presentImagePicker(.camera)}))
         select.addAction(UIAlertAction(title:"Saved Photo Album", style: .default, handler:{(alert) -> Void in
@@ -50,7 +58,18 @@ class MemoFormViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         contents.delegate = self
-
+        
+        //배경 이미지 설정
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named:"memo-background.png")!)
+        //텍스트 뷰의 속성을 수정
+        self.contents.layer.borderWidth = 0
+        self.contents.layer.borderColor = UIColor.clear.cgColor
+        self.contents.layer.backgroundColor = UIColor.clear.cgColor
+        //줄 간격 조정
+        let style = NSMutableParagraphStyle()
+        style.lineSpacing = 0
+        self.contents.attributedText = NSAttributedString(string: " ", attributes: [NSAttributedString.Key.paragraphStyle:style])
+        self.contents.text = ""
     }
     //image picker를 출력해줄 사용자 정의 메소드
     //조건에 맞지 않을때 더이상 수행하지 않도록 하고자 할 때 guard를 사용함.
