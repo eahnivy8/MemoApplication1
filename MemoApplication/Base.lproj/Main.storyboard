@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--MemoList-->
+        <!--Memo List Table View Controller-->
         <scene sceneID="cxe-bI-Wq5">
             <objects>
                 <tableViewController id="42f-XW-cNb" customClass="MemoListTableViewController" customModule="MemoApplication" customModuleProvider="target" sceneMemberID="viewController">
@@ -107,7 +107,7 @@
                             <outlet property="delegate" destination="42f-XW-cNb" id="n8H-vX-Fhq"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="MemoList" id="s9N-SP-d1v"/>
+                    <navigationItem key="navigationItem" id="s9N-SP-d1v"/>
                     <connections>
                         <segue destination="Gj9-mr-OwG" kind="push" id="eLO-kJ-wc0"/>
                         <segue destination="Bs5-m6-SoF" kind="push" id="BbK-N5-ONT"/>
