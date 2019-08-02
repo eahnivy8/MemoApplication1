@@ -1,10 +1,4 @@
-//
-//  MemoFormViewController.swift
-//  MemoApplication
-//
-//  Created by TJ on 01/08/2019.
-//  Copyright © 2019 TJ. All rights reserved.
-//
+
 
 import UIKit
 
@@ -90,11 +84,16 @@ class MemoFormViewController: UIViewController{
         self.present(picker, animated: true)
         
         
+        }
+//화면을 터치하면 네비게이션 바가 사라졌다 보여졌다 토글하는 기능 구현.
+   override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+       let bar = self.navigationController?.navigationBar
+       let ts = TimeInterval(1.0)
+       UIView.animate(withDuration: ts){
+           bar?.alpha = ( bar?.alpha == 0 ? 1 : 0)
+        }
     }
-
-
 }
-
 extension MemoFormViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     //image를 선택했을 때 호출되는 메소드
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
@@ -120,3 +119,4 @@ extension MemoFormViewController: UITextViewDelegate{
         self.navigationItem.title = subject
     }
 }
+

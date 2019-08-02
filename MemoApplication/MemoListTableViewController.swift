@@ -1,10 +1,4 @@
-//
-//  MemoListTableViewController.swift
-//  MemoApplication
-//
-//  Created by TJ on 01/08/2019.
-//  Copyright © 2019 TJ. All rights reserved.
-//
+
 
 import UIKit
 
@@ -41,7 +35,16 @@ class MemoListTableViewController: UITableViewController {
         memo2.content = "HQ on 8/14/2019"
         memo2.regdate = Date(timeIntervalSinceNow: 6000)
         appDelegate.memoList.append(memo2)
-        
+        //if 나 guard 구문에서 메소드의 실행 결과나 변수를 이용해서 상수를 생성하는 구문을 작성하면,
+        //실행 결과나 변수가 nil이면 {} 안의 내용을 수행하지 않고 nil이 아니면 수행.
+        if let revealVC = self.revealViewController(){
+            let sideBarBtn = UIBarButtonItem()
+            sideBarBtn.image = UIImage(named: "sidemenu.png")
+            sideBarBtn.target = revealVC
+            sideBarBtn.action = #selector(revealVC.revealToggle(_:))
+            self.navigationItem.leftBarButtonItem = sideBarBtn
+            self.view.addGestureRecognizer(revealVC.panGestureRecognizer())
+        }
     }
     //화면에 다시 출력될 때 호출되는 메소드
     override func viewWillAppear(_ animated: Bool) {

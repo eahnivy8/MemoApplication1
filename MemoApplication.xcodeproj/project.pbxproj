@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		32789FF722F2B185003CA7A2 /* MemoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32789FF622F2B185003CA7A2 /* MemoCell.swift */; };
+		3299F95422F3C6CC00F1884B /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3299F95222F3C6CC00F1884B /* SWRevealViewController.m */; };
+		3299F95622F3C89B00F1884B /* SideBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3299F95522F3C89B00F1884B /* SideBarVC.swift */; };
 		32AC169022F2734400D49508 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32AC168F22F2734400D49508 /* AppDelegate.swift */; };
 		32AC169522F2734400D49508 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32AC169322F2734400D49508 /* Main.storyboard */; };
 		32AC169722F2734B00D49508 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 32AC169622F2734B00D49508 /* Assets.xcassets */; };
@@ -20,6 +22,10 @@
 
 /* Begin PBXFileReference section */
 		32789FF622F2B185003CA7A2 /* MemoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoCell.swift; sourceTree = "<group>"; };
+		3299F95122F3C6CC00F1884B /* MemoApplication-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MemoApplication-Bridging-Header.h"; sourceTree = "<group>"; };
+		3299F95222F3C6CC00F1884B /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		3299F95322F3C6CC00F1884B /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
+		3299F95522F3C89B00F1884B /* SideBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideBarVC.swift; sourceTree = "<group>"; };
 		32AC168C22F2734400D49508 /* MemoApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemoApplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		32AC168F22F2734400D49508 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		32AC169422F2734400D49508 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -62,9 +68,10 @@
 		32AC168E22F2734400D49508 /* MemoApplication */ = {
 			isa = PBXGroup;
 			children = (
+				3299F95322F3C6CC00F1884B /* SWRevealViewController.h */,
+				3299F95222F3C6CC00F1884B /* SWRevealViewController.m */,
 				32AC168F22F2734400D49508 /* AppDelegate.swift */,
 				32AC169322F2734400D49508 /* Main.storyboard */,
-				32AC169622F2734B00D49508 /* Assets.xcassets */,
 				32AC169822F2734B00D49508 /* LaunchScreen.storyboard */,
 				32AC169B22F2734B00D49508 /* Info.plist */,
 				32AC16A122F2764700D49508 /* MemoListTableViewController.swift */,
@@ -72,6 +79,9 @@
 				32AC16A522F284DB00D49508 /* MemoReadViewController.swift */,
 				32AC16A722F288CE00D49508 /* MemoValueObject.swift */,
 				32789FF622F2B185003CA7A2 /* MemoCell.swift */,
+				3299F95122F3C6CC00F1884B /* MemoApplication-Bridging-Header.h */,
+				3299F95522F3C89B00F1884B /* SideBarVC.swift */,
+				32AC169622F2734B00D49508 /* Assets.xcassets */,
 			);
 			path = MemoApplication;
 			sourceTree = "<group>";
@@ -108,6 +118,7 @@
 				TargetAttributes = {
 					32AC168B22F2734400D49508 = {
 						CreatedOnToolsVersion = 10.2.1;
+						LastSwiftMigration = 1020;
 					};
 				};
 			};
@@ -147,10 +158,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3299F95422F3C6CC00F1884B /* SWRevealViewController.m in Sources */,
 				32AC16A622F284DB00D49508 /* MemoReadViewController.swift in Sources */,
 				32AC16A822F288CE00D49508 /* MemoValueObject.swift in Sources */,
 				32AC169022F2734400D49508 /* AppDelegate.swift in Sources */,
 				32AC16A222F2764700D49508 /* MemoListTableViewController.swift in Sources */,
+				3299F95622F3C89B00F1884B /* SideBarVC.swift in Sources */,
 				32AC16A422F27D7300D49508 /* MemoFormViewController.swift in Sources */,
 				32789FF722F2B185003CA7A2 /* MemoCell.swift in Sources */,
 			);
@@ -298,7 +311,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3M62UV9XR3;
 				INFOPLIST_FILE = MemoApplication/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -306,6 +321,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.eddie.MemoApplication;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MemoApplication/MemoApplication-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -315,7 +332,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3M62UV9XR3;
 				INFOPLIST_FILE = MemoApplication/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -323,6 +342,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.eddie.MemoApplication;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MemoApplication/MemoApplication-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
